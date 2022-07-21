@@ -1,0 +1,26 @@
+###
+
+GET http://localhost:9000/api HTTP/1.1
+
+###
+POST http://localhost:9000/api HTTP/1.1
+content-type: application/json
+
+{
+    "patente":"NGU065",
+    "modelo":"Renault Master 2013 2.0",
+    "promedio":8
+}
+
+###
+DELETE http://localhost:9000/api/4 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/4 HTTP/1.1
+content-type: application/json
+
+{
+    "patente":"NGU065",
+    "modelo":"Renault Master 2013 2.0",
+    "promedio":10
+}
