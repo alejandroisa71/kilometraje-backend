@@ -1,7 +1,9 @@
-const express = require("express");
-const routes = express.Router();
+// const express = require("express");
+import express from 'express'
+const router = express.Router();
 
-routes.get("/", (req, res) => {
+
+router.get("/", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
     conn.query("SELECT * FROM vehiculos", (err, rows) => {
@@ -11,7 +13,7 @@ routes.get("/", (req, res) => {
   });
 });
 
-routes.get("/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
     conn.query(
@@ -25,7 +27,7 @@ routes.get("/:id", (req, res) => {
   });
 });
 
-routes.post("/", (req, res) => {
+router.post("/", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
     conn.query("INSERT INTO vehiculos set ?", [req.body], (err, rows) => {
@@ -35,7 +37,7 @@ routes.post("/", (req, res) => {
   });
 });
 
-routes.delete("/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
     conn.query(
@@ -50,7 +52,7 @@ routes.delete("/:id", (req, res) => {
   });
 });
 
-routes.put("/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
 
@@ -66,4 +68,5 @@ routes.put("/:id", (req, res) => {
   });
 });
 
-module.exports = routes;
+export default router
+// module.exports = routes;
