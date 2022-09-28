@@ -1,18 +1,13 @@
-// const express = require("express");
 import express from 'express'
-// const mysql = require("mysql");
 import mysql from 'mysql'
-// const myconn = require("express-myconnection");
 import myconn from 'express-myconnection'
-// const cors = require("cors");
 import cors from 'cors'
-// const dotenv = require("dotenv").config();
 import {} from 'dotenv/config'
 
 // const routes = require("./routes/routes");
 import routesVehiculos from './routes/routesVehiculos.js'
 import routesMovimientos from './routes/routesMovimientos.js'
-console.log(routesVehiculos)
+
 
 const app = express();
 app.set("port", process.env.PORT || 9000);
@@ -34,8 +29,8 @@ app.get("/", (req, res) => {
   res.send("Wecome to my api");
 });
 
-app.use("/api/", routesVehiculos);
-app.use("/api/",routesMovimientos);
+app.use("/api/vehiculos", routesVehiculos);
+app.use("/api/movimientos",routesMovimientos);
 
 //Server running----------------------------
 app.listen(app.get("port"), () => {
