@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
   res.send("Wecome to my api");
 });
 
-// app.use("/api/", routesVehiculos);
+app.use("/api/", routesVehiculos);
 app.use("/api/",routesMovimientos);
 
 //Server running----------------------------
